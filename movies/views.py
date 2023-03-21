@@ -2,12 +2,12 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 
-from movies.models import Movie
+from movies.models import Movie, Category, Actor
 from movies.forms import ReviewForm
 
 
 class MoviesView(ListView):
-    """"Список фильмов"""
+    """Список фильмов"""
     model = Movie
     queryset = Movie.objects.filter(draft=False)
 
@@ -30,3 +30,10 @@ class AddReview(View):
             form.movie = movie
             form.save()
         return redirect(movie.get_absolute_url())
+
+
+class ActorView(DetailView):
+    """Вывод информации об актере"""
+    model = Actor
+    template_name = 'movies/actor.html'
+    slug_field = 'name'
