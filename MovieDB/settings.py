@@ -39,11 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-
     'ckeditor',
     'ckeditor_uploader',
     'movies',
-
+    'contact',
     'snowpenguin.django.recaptcha3',
 ]
 
